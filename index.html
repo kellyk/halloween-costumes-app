@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Shake.js</title>
+<script type="text/javascript" src="shake.js"></script>
+</head>
+<body>
+
+<h1>Shake It Like A Polaroid Picture</h1>
+
+<script type="text/javascript">
+window.onload = function() {
+
+	window.addEventListener('shake', shakeEventDidOccur, false);
+
+	//define a custom method to fire when shake occurs.
+	function shakeEventDidOccur () {
+		alert("tacos r guud");
+	}
+};
+</script>
+</body>
+</html>
