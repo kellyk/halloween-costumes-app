@@ -1,46 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html class="orange">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<title>Shake.js</title>
-<script type="text/javascript" src="shake.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Shake.js</title>
+
+    <link href="public/css/app.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-<h1>Shake It Like A Polaroid Picture</h1>
+<h1>Shake It<br /><small>(Like A Polaroid Picture)</small></h1>
+
 <div id="costumeResult"></div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="public/js/shake.js"></script>
 
 <script type="text/javascript">
 window.onload = function() {
 
-	// temporary data
-	var costumes = [
-		{
-			title: "Pirate",
-			image: "img/pirate.jpeg"
-		},
-		{
-			title: "Bumble Bee",
-			image: "img/bee.jpeg"
-		},
-		{
-			title: "Witch",
-			image: "img/witch.jpg"
-		}
-	];
+    // temporary data
+    var costumes = [
+        {
+            title: "Pirate",
+            image: "public/img/pirate.jpeg"
+        },
+        {
+            title: "Bumble Bee",
+            image: "public/img/bee.jpeg"
+        },
+        {
+            title: "Witch",
+            image: "public/img/witch.jpg"
+        }
+    ];
 
-	window.addEventListener('shake', shakeEventDidOccur, false);
+    window.addEventListener('shake', shakeEventDidOccur, false);
+    window.addEventListener('click', shakeEventDidOccur, false);
 
-	//define a custom method to fire when shake occurs.
-	function shakeEventDidOccur () {
-		var random = Math.floor(Math.random() * costumes.length);
-		var costume = costumes[random];
+    //define a custom method to fire when shake occurs.
+    function shakeEventDidOccur () {
+        var random = Math.floor(Math.random() * costumes.length);
+        var costume = costumes[random];
+        var even = random % 2 === 0 ? true : false;
 
-		var $costumeResult = document.getElementById('costumeResult');
-		$costumeResult.innerHTML = '<h2>' + costume.title + '</h2><br />' + '<img src="' + costume.image + '" />';	
-	}
+        $('html').toggleClass('black').toggleClass('orange');
+
+        var $costumeResult = document.getElementById('costumeResult');
+        $costumeResult.innerHTML = '<h2>' + costume.title + '</h2><br />' + '<img src="' + costume.image + '" />';
+    }
 };
 </script>
 </body>

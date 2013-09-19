@@ -1,0 +1,13 @@
+html {
+    text-align: center;
+
+    &.orange {
+        background: orange;
+        color: black;
+    }
+
+    &.black {
+        background: black;
+        color: white;
+    }
+}
