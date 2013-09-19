@@ -10,15 +10,36 @@
 <body>
 
 <h1>Shake It Like A Polaroid Picture</h1>
+<div id="costumeResult"></div>
 
 <script type="text/javascript">
 window.onload = function() {
+
+	// temporary data
+	var costumes = [
+		{
+			title: "Pirate",
+			image: "img/pirate.jpeg"
+		},
+		{
+			title: "Bumble Bee",
+			image: "img/bee.jpeg"
+		},
+		{
+			title: "Witch",
+			image: "img/witch.jpg"
+		}
+	];
 
 	window.addEventListener('shake', shakeEventDidOccur, false);
 
 	//define a custom method to fire when shake occurs.
 	function shakeEventDidOccur () {
-		alert("tacos r guud");
+		var random = Math.floor(Math.random() * costumes.length);
+		var costume = costumes[random];
+
+		var $costumeResult = document.getElementById('costumeResult');
+		$costumeResult.innerHTML = '<h2>' + costume.title + '</h2><br />' + '<img src="' + costume.image + '" />';	
 	}
 };
 </script>
